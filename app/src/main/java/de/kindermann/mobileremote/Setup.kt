@@ -119,7 +119,6 @@ EasyPermissions.RationaleCallbacks {
                     edtCode!!.setText("")
                 } else {
                     try {
-
                         cardView1!!.startAnimation(reveal)
                         cardView2!!.startAnimation(hide)
                         cardView1!!.visibility = View.VISIBLE
