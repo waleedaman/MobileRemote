@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "de.kindermann.mobileremote"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -29,6 +29,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/*'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
+    }
 }
 
 dependencies {
@@ -43,6 +54,7 @@ dependencies {
     implementation "io.ktor:ktor-server-core:1.6.1"
     implementation "io.ktor:ktor-server-netty:1.6.1"
     implementation "io.ktor:ktor-websockets:1.6.1"
+    implementation "io.ktor:ktor-client-android:1.6.1"
     implementation "ch.qos.logback:logback-classic:1.2.3" // for logging
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

@@ -123,7 +123,10 @@ EasyPermissions.RationaleCallbacks {
                         cardView2!!.startAnimation(hide)
                         cardView1!!.visibility = View.VISIBLE
                         cardView2!!.visibility = View.GONE
-                        edtCode!!.setText(result.contents.toString())
+                        val ip = result.contents.toString()
+                        val intent = Intent(this@Setup,Remote::class.java)
+                        intent.putExtra("IP",ip)
+                        startActivity(intent)
                     } catch (exception: JSONException) {
                         Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_SHORT).show()
                         edtCode!!.setText("")
