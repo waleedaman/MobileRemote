@@ -64,11 +64,13 @@ EasyPermissions.RationaleCallbacks {
 
             btnEnter!!.setOnClickListener {
 
-                if (edtCode!!.text.toString().isNullOrEmpty()) {
-                    Toast.makeText(this, "Please enter code", Toast.LENGTH_SHORT).show()
+                if (edtCode!!.text.isNullOrEmpty()) {
+                    Toast.makeText(this, "Please enter IP", Toast.LENGTH_SHORT).show()
                 } else {
-                    var value = edtCode!!.text.toString()
-
+                    val value = edtCode!!.text.toString()
+                    val intent = Intent(this@Setup,Remote::class.java)
+                    intent.putExtra("IP",value)
+                    startActivity(intent)
                     Toast.makeText(this, value, Toast.LENGTH_SHORT).show()
 
                 }
